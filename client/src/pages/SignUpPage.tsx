@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 import { useUserInput } from '../components/UserInput';
 import { EmailInput } from "../components/EmailInput"
 import { usePasswordInput } from "../components/PasswordInput"
-// import { OutputProps, useFetchData } from '../utils/FetchingData';
-
-
-
-
 import { useNavigate } from 'react-router-dom';
 function SignUpPage() {
   const [checkBothPassword, setCheckBothPassword] = useState<boolean>(false);
@@ -42,7 +37,7 @@ function SignUpPage() {
     if (password1.userPassword === password2.userPassword && userValid && emailValid && passwordValid) {
       console.log("submitting....")
       setLoading(true);
-      const response = await fetch("/api/SignUp", {
+      const response = await fetch("http://localhost:3001/api/SignUp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -57,7 +52,7 @@ function SignUpPage() {
       if (responseFromServer.success) {
         alert(responseFromServer.message);
 
-        const response = await fetch("/api/Login", {
+        const response = await fetch("http://localhost:3001/api/Login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

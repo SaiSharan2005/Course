@@ -1,0 +1,151 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #9400FF;
+    width: 500px;
+}
+
+.courses-all {
+    flex-wrap: wrap;
+}
+
+.course {
+    margin: 10px;
+    min-width: 200px;
+    width: 30vw;
+    max-width: 260px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    /* background-color: #9400FF; */
+}
+
+.course .card-image img {
+    width: -webkit-fill-available;
+    height: 150px;
+}
+
+.course .courseName {
+    margin: 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.course .courseDescription p {
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0px;
+    overflow: hidden;
+    font-size: 10px;
+    height: 30px;
+
+}
+
+
+/* CoursePage */
+
+
+
+.topic {
+    margin: 2vh 0px;
+    padding: 0px 10vw;
+    width: 100vw;
+    min-height: 40vh;
+    display: flex;
+    background-color: #27005D;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topic-img {
+    width: 30vw;
+}
+
+.topic-side-bar {
+    width: 80vw;
+    margin: 16px 9vw;
+    border: black solid 1px;
+    display: block;
+    box-shadow: 6px 3px 6px rgba(148, 0, 250, 2.16);
+}
+
+.topic .head {
+    color: #E4F1FF;
+    font-size: 50px;
+    font-weight: 500;
+
+}
+
+.description{
+    font-size: 20px;
+    font-weight: 200;
+    color: #E4F1FF;
+}
+
+.topic-child {
+    margin: 20px;
+}
+
+.createdDateTime{
+    font-size: 15px;
+    font-weight: 200;
+    color: #E4F1FF;
+}
+
+
+
+
+
+
+
+
+
+
+/* sidebar css  */
+
+.sidebar{
+    width: 100%;
+    box-shadow: 6px 3px 6px rgba(148, 0, 250, 2.16);
+    /* border: 2px solid black; */
+    border-radius: 5px;
+}
+
+.sidebar-topic{    
+    border-bottom: 1px solid black;
+}
+
+.topicName{
+    /* margin: 7px; */
+    font-size: 17px;
+    text-align: end;
+    padding: 7px;
+    font-weight: bold;
+}
+.subTopics{
+
+    border-bottom: 1px solid black;
+}
+.subTopic{
+    /* padding: 1%; */
+    gap: 10px;
+    padding: 4px 10px;
+    margin: 0px;
+    text-align: start;
+
+}
+
+.subTopicName{
+    max-width: 79%;
+    margin: 0px;
+    font-size: 1.0em;
+}
+
+
+
+/* TopicPage */
+
+.topic-sidebar{
+    width: 25%;
+    padding: 10px;
+}

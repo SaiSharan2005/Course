@@ -40,7 +40,7 @@ class Courses{
 
 
     static findCourseById(courseId:number,result:(err:TError, data:any)=>void):void{
-        sql.query("SELECT * FROM courses WHERE courseId = ?" ,[courseId],(err:TError,res:any)=>{
+        sql.query("SELECT c.courseId,u.username,c.courseName,c.description,c.createdDateTime,c.courseImage  FROM courses c JOIN users u ON u.userId = c.creatorId WHERE  c.courseId= ?" ,[courseId],(err:TError,res:any)=>{
             if(err){
                 result(err,null);
             }
@@ -60,7 +60,7 @@ class Courses{
         })
     }
     static EveryTutorial(courseId:number,result:(err:TError,data:any)=>void):void{
-        sql.query("SELECT s.topicId, s.subTopicId,t.topicName,s.subTopicName,s.yotubeLink,s.createdDateTime FROM subTopics s JOIN topics t ON s.topicId = t.topicId WHERE t.courseId = ?",[courseId],(err:TError,res:any)=>{
+        sql.query("SELECT s.topicId, s.subTopicId,t.topicName,s.subTopicName,s.yotubeLink,s.createdDateTime,s.duration FROM subTopics s JOIN topics t ON s.topicId = t.topicId WHERE t.courseId = ?",[courseId],(err:TError,res:any)=>{
             if(err){
                 result(err,null);
             }

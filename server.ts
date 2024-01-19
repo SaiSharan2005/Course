@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from "cors"
 import "./config/mysql"
 import api from "./routes/api"
+import path from "path";
 
 dotenv.config();
 const app: Express = express();
@@ -11,6 +12,9 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+
 
 app.use("/api",api)
 

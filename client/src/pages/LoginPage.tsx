@@ -22,7 +22,7 @@ function LoginPage() {
     if (passwordcondi && usercondi) {
       console.log("You can submit.......");
       setLoading(true);
-      const response = await fetch("/api/Login", {
+      const response = await fetch("http://localhost:3001/api/Login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
