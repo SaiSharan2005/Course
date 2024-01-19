@@ -81,8 +81,6 @@ CREATE TABLE comments(
     FOREIGN KEY (subTopicId) REFERENCES subTopics(subTopicId) ON DELETE CASCADE
 );
 
-
-
 -- Insert data into users table
 INSERT INTO users (username, passwordHash, email) VALUES
 ('user1', 'hashed_password1', 'user1@example.com'),
@@ -128,9 +126,6 @@ INSERT INTO comments (subTopicId, userId) VALUES
 (2, 2),
 (3, 1);
 
-
-
-
 SELECT 
     s.topicId,
     s.subTopicId,
@@ -144,6 +139,3 @@ JOIN
     topics t ON s.topicId = t.topicId
 WHERE 
     t.courseId = 2;
-
-
-
