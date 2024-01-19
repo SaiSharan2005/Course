@@ -3,12 +3,9 @@ CREATE DATABASE Course;
 USE Course;
 
 -- for connection run this 
--- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
--- flush privileges;
 
-
-
-
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+flush privileges;
 
 CREATE TABLE users (
     userId INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,7 +22,6 @@ CREATE TABLE userDetails (
     streak INT NOT NULL DEFAULT 0,
     userId INT NOT NULL UNIQUE,
     FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
-
 );
 
 CREATE TABLE courses (
@@ -34,8 +30,8 @@ CREATE TABLE courses (
     courseName VARCHAR(255) NOT NULL,
     description VARCHAR(500) NOT NULL,
     createdDateTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    courseImage VARCHAR(255) NOT NULL DEFAULT "testing.jpg",
     FOREIGN KEY (creatorId) REFERENCES users(userId) ON DELETE CASCADE
-
 );
 
 CREATE TABLE topics(
@@ -53,8 +49,8 @@ CREATE TABLE subTopics(
     subTopicName VARCHAR(255) NOT NULL,
     yotubeLink VARCHAR(512) NOT NULL,
     createdDateTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    duration TIME NOT NULL DEFAULT "00:12:13",
     FOREIGN KEY (topicId) REFERENCES topics(topicId) ON DELETE CASCADE
-
 );
 
 CREATE TABLE enrolls(
@@ -65,7 +61,6 @@ CREATE TABLE enrolls(
     createdDateTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (courseId) REFERENCES courses(courseId) ON DELETE CASCADE,
     FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
-
 );
 
 
