@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { useUserInput } from '../components/UserInput';
 import { EmailInput } from "../components/EmailInput"
 import { usePasswordInput } from "../components/PasswordInput"
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/userContext';
 function SignUpPage() {
+  const { userId, username, setUser, clearUser } = useContext(UserContext)!;
+
   const [checkBothPassword, setCheckBothPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -50,9 +53,10 @@ function SignUpPage() {
       const responseFromServer = await response.json();
       console.log("response ", responseFromServer);
       if (responseFromServer.success) {
+        console.log(responseFromServer);
         alert(responseFromServer.message);
 
-        const response = await fetch("http://localhost:3001/api/Login", {
+        const response2 = await fetch("http://localhost:3001/api/Login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -61,14 +65,53 @@ function SignUpPage() {
           }),
 
         });
-        const responseFromServerLogin = await response.json();
+        const responseFromServerLogin = await response2.json();
         console.log(responseFromServerLogin)
         setLoading(false)
 
         if (responseFromServerLogin.success) {
 
           localStorage.setItem("authToken", JSON.stringify(responseFromServerLogin.authToken));
-          navigate("/")
+          try {
+            const authToken = await localStorage.getItem('authToken');
+
+            // if(authToken){
+            // const decodedToken: any = jwtDecode(authToken); 
+            // console.log('Decoded Token:', decodedToken);}
+            // Make an API call to fetch initial user data
+            const response = await fetch('http://localhost:3001/api/getUserIdWithAuthToken', {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                authToken: authToken?.slice(1, -1)
+              })
+            });
+            console.log("Fetching data...");
+
+            if (response.ok) {
+              const data = await response.json();
+
+              // Log the entire response for debugging
+
+              // Replace hardcoded values with actual data
+              const userData = await fetch('http://localhost:3001/api/getUserById', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId: data.userId })
+              })
+              const data2 = await userData.json();
+              console.log("sata2", data2);
+              // Initialize the user context with fetched data
+
+              await setUser(data2.userId, data2.username);
+            } else {
+              console.error('Error fetching user data:', response.statusText);
+            }
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+          }
+
+          navigate("/createProfile")
         }
         else {
           setErrorMessage("Enter username and password correctly");

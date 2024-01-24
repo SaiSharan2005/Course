@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import {InputItem, TutorialFormater,OutputItem } from '../utils/TutorialFormater';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
-export function SideBar({ tutorialData }: { tutorialData: InputItem[] }) {
+
+export function SideBar({ tutorialData,courseId}: { tutorialData: InputItem[],courseId:number }) {
     const { resultArray } = TutorialFormater(tutorialData);
-    console.log("result:",resultArray)
+    // console.log("result:",resultArray)
 
     const styles = {
         hrstyle: {
@@ -37,7 +38,7 @@ export function SideBar({ tutorialData }: { tutorialData: InputItem[] }) {
                         <div className="subTopic">
                             {topic.subTopics.map((subTopic) => (
                              <>
-                                    <Link to={`/Topic/${subTopic.subTopicId}`} className='removeLinkEffect'>
+                                    <Link to={`/Course/${Number(courseId)}/Topic/${subTopic.subTopicId}`} className='removeLinkEffect'>
                                 <div key={subTopic.subTopicId} className={`${subTopic.subTopicId} subTopic d-flex flex-row justify-content-between`}>
                                     <p className="subTopicName">{subTopic.subTopicName}</p>
                                     <p className="subTopicDate">{subTopic.duration}</p>

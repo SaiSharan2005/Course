@@ -2,3 +2,49 @@
     text-decoration: none;
     color: black;
 }
+
+.home-img img{
+/* margin: auto; */
+  width: 100vw;
+}
+
+
+/* About us */
+
+.main-content {
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+.main-heading p {
+    margin: 0vh 2vw;
+    font-size: 43px;
+    font-weight: 700;
+    color: #E4F1FF;
+  }
+  
+  .main-paragraph p {
+    margin: 2vh 4vw;
+    font-size: 20px;
+    color: #E4F1FF;
+  
+  }
+  
+  
+.points ul {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .points li {
+    list-style-type: none;
+    margin-left: 20px;
+  }
+  
+  

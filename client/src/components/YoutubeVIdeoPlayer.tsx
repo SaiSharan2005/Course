@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-export interface IYoutubeVidePlayerProps {}
+export interface IYoutubeVidePlayerProps {
+  videoId:string;
+}
 
-export default function YoutubeVidePlayer(props: IYoutubeVidePlayerProps) {
-  const videoId = "ZzaPdXTrSb8";
+export default function YoutubeVidePlayer({videoId}: IYoutubeVidePlayerProps) {
+  // const videoId = "ZzaPdXTrSb8";
   
   return (
-    <div>
+
       <div className="video-responsive">
         <iframe
           width="100%"
@@ -17,6 +19,6 @@ export default function YoutubeVidePlayer(props: IYoutubeVidePlayerProps) {
           title="Embedded youtube"
         />
       </div>
-    </div>
+
   );
 }

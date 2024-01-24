@@ -55,6 +55,7 @@ export class Enroll {
             }
             else {
                 if(res.length>0){
+                    console.log(res.enrollId)
                     result(null, res.enrollId);
                 }
                 else{

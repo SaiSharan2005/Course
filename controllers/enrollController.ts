@@ -103,3 +103,35 @@ export const getCourseUser = async (req: Request, res: Response) => {
         }
     })
 }
+
+export const getEnrollOrNot = async (req: Request, res: Response) => {
+    if (!req.body) {
+        const response = {
+            success: false,
+            message: "Content can not be empty!"
+        };
+        res.status(400).json(response);
+        return;
+    }
+
+
+    const newEnroll: Enroll = new Enroll({
+        courseId: req.body.courseId,
+        userId: req.body.userId
+    })
+    newEnroll.CheckEnrolledOrNot((err: TError, result: any) => {
+        if (err) {
+            
+            const response: IEnrollResponse = {
+                success: false,
+                message:  "you are alredy enrolled in this course"
+            }
+            return res.status(500).json(response);
+        }
+        else {
+            console.log(result)
+            return res.status(200).json(result);
+            ;
+        }
+    })
+}

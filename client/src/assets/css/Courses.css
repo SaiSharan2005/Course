@@ -1,3 +1,8 @@
+/* Add this to your CSS */
+.nav-text-color {
+    color: white !important; /* Use !important to override default Bootstrap styles */
+  }
+  
 .card {
     display: flex;
     flex-direction: row;
@@ -49,13 +54,18 @@
 
 .topic {
     margin: 2vh 0px;
-    padding: 0px 10vw;
+    padding: 20px 10vw;
     width: 100vw;
     min-height: 40vh;
     display: flex;
     background-color: #27005D;
     justify-content: space-between;
     align-items: center;
+}
+
+ .available-courses{
+    width: 80vw;
+    margin:  2vh auto;
 }
 
 .topic-img {
@@ -81,24 +91,30 @@
     font-size: 20px;
     font-weight: 200;
     color: #E4F1FF;
+    margin: 4px;
 }
 
 .topic-child {
-    margin: 20px;
+    /* margin: 20px;    margin: 2px; */
+    margin: 2px;
 }
 
 .createdDateTime{
     font-size: 15px;
     font-weight: 200;
     color: #E4F1FF;
+    margin: 2px;
+}
+.createdBy{
+    font-size: 15px;
+    color: white;
 }
 
+.topic button{
+    background-color: white;
+    border-radius: 2px;
 
-
-
-
-
-
+}
 
 
 
@@ -107,7 +123,7 @@
 .sidebar{
     width: 100%;
     box-shadow: 6px 3px 6px rgba(148, 0, 250, 2.16);
-    /* border: 2px solid black; */
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -140,12 +156,49 @@
     margin: 0px;
     font-size: 1.0em;
 }
+.subTopicDate{
+    margin: 0px;
+}
 
 
 
 /* TopicPage */
 
+
 .topic-sidebar{
-    width: 25%;
+    margin-top: 40px;
+    width: 30%;
     padding: 10px;
 }
+.youtube-player{
+    width: -webkit-fill-available;
+    height: 90%;
+    padding: 10px;
+}
+
+.videoplay {
+    width: 100px;
+    box-shadow: 6px 3px 6px rgba(148, 0, 250, 2.16);
+    background-color: rgb(148 0 225);
+    border-radius: 10px;
+    padding: 2px 25px;
+    margin: 2vh 5vw;
+  }
+  
+  .videoplay p {
+    margin: auto;
+    color: white;
+    font-weight: bold;
+  }
+
+.video-responsive iframe{
+    height: 70vh;
+
+}
+.hide-show-sidebar{
+    height: 30px;
+    position: absolute ;
+    margin: 20px;
+}
+
+

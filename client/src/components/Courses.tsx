@@ -14,7 +14,6 @@ interface ICourses{
     courseImage:string
 }
 
-
 export function Courses (props: ICoursesProps) {
 
     const [courses,setCourses] = React.useState<ICourses[]>([]);
@@ -49,25 +48,3 @@ export function Courses (props: ICoursesProps) {
     </div>
   );
 }
-
-// import * as React from 'react';
-
-// export interface ICoursesProps {}
-
-// export function Courses(props: ICoursesProps) {
-//   React.useEffect(() => {
-//     const fetchData = async () => {
-   
-//         const response = await fetch("/api/getAllCourses", {
-//           method: "GET",
-//           headers: { "Content-Type": "application/json" },
-//         });
-//         console.log(response)
-
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   return <div></div>;
-// }

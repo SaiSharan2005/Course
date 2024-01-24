@@ -6,12 +6,14 @@ import "./config/mysql"
 import api from "./routes/api"
 import path from "path";
 
+require("./config/db")
+
 dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 

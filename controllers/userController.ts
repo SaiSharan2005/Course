@@ -113,3 +113,37 @@ export const Login = (req: Request, res: Response): void => {
     }
   });
 }
+
+export const getUserIdWithAuthToken = (req: Request, res: Response): void => {
+  try {
+    const authToken: string = req.body.authToken;
+    if (!authToken) {
+      res.status(400).json({ error: 'Missing authentication token' });
+      return;
+    }
+
+    // Use a more specific type for decoded, assuming your JWT payload structure
+    interface DecodedToken {
+      user: {
+        id: string;
+        // Add other properties if present in your payload
+      };
+      // Add other properties if present in your payload
+    }
+
+    const decoded: DecodedToken = jwt.verify(authToken, jwtSecret) as DecodedToken;
+
+    if (!decoded || !decoded.user) {
+      res.status(401).json({ error: 'Invalid authentication token' });
+      return;
+    }
+
+    const userId: string = decoded.user.id;
+
+    res.status(200).json({ userId });
+  } catch (error) {
+    const typedError = error as { message: string };
+    console.error('Error decoding token:', typedError.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./new.css">
+</head>
+<body>
+    
+    <div className="create-profile-container">
+        <h2>Create Your Profile</h2>
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label htmlFor="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" value={profileData.firstName} onChange={handleChange}
+                    required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" value={profileData.lastName} onChange={handleChange}
+                    required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="bio">Bio:</label>
+                <textarea id="bio" name="bio" value={profileData.bio} onChange={handleChange} rows={4} required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="avatar">Avatar URL:</label>
+                <input type="text" id="avatar" name="avatar" value={profileData.avatar} onChange={handleChange} />
+            </div>
+            <button type="submit">Create Profile</button>
+        </form>
+    </div>
+</body>
+</html>
