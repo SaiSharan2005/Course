@@ -7,9 +7,9 @@ function AuthUserHomePage() {
 
   return (<>
 
-    <h1 style={{ marginLeft: "4vw", marginTop: "2vh" }}>Welcome {username}</h1>
     <div className='available-courses'>
-      <h3 >Available Courses</h3>
+    <h1 className= "py-3 px-1 font-sans text-lg text-left font-bold"  >Welcome {username} ,</h1>
+      <h3 className='font-sans text-lg font-serif font-bold'>Available Courses</h3>
       <Courses />
     </div>
 

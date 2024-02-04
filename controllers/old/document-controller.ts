@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Document, { IDocument } from "../models/documentSubTopicSchema";
+import Document, { IDocument } from "../../models/old/documentSubTopicSchema";
 
 const addDocument = async (req: Request, res: Response): Promise<void> => {
   try {

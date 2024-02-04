@@ -1,4 +1,4 @@
-import sql from "../config/mysql";
+import sql from "../../config/mysql";
 export interface IEnroll {
     courseId: number;
     userId: number;
@@ -55,8 +55,8 @@ export class Enroll {
             }
             else {
                 if(res.length>0){
-                    console.log(res.enrollId)
-                    result(null, res.enrollId);
+                    console.log(res[0].enrollId)
+                    result(null, res[0].enrollId);
                 }
                 else{
                     result(null,0);

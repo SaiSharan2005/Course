@@ -1,4 +1,4 @@
-import { Enroll, IEnroll } from "../models/enrollModel"
+import { Enroll, IEnroll } from "../../models/old/enrollModel"
 import { Response, Request } from "express";
 
 type TError = null | Error | { message: string ,code:string};
@@ -126,11 +126,11 @@ export const getEnrollOrNot = async (req: Request, res: Response) => {
                 success: false,
                 message:  "you are alredy enrolled in this course"
             }
-            return res.status(500).json(response);
+            return res.status(500).json({result:result});
         }
         else {
-            console.log(result)
-            return res.status(200).json(result);
+            console.log("result came ",result)
+            return res.status(200).send({result:result});
             ;
         }
     })

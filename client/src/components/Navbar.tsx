@@ -9,6 +9,7 @@ function CustomNavbar() {
 
   const LogOut = () => {
     localStorage.removeItem("authToken");
+    
   };
 
   return (

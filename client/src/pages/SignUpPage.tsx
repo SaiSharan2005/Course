@@ -144,24 +144,21 @@ function SignUpPage() {
               <div className="form-outline mb-3">
 
                 <label className="form-label" htmlFor="form3Example3">Username</label>
-                <br />
+
                 <div className="form-control-me">{userName.userInputComponent}</div>
               </div>
               <div className="form-outline mb-3">
 
                 <label className="form-label" htmlFor="form3Example3">Email</label>
-                <br />
                 <div className="form-control-me">{email.userEmailComponent}</div>
               </div>
               <div className="form-outline mb-1">
 
                 <label className="form-label" htmlFor="form3Example4">Password1</label>
-                <br />
                 <div className="form-control-me">{password1.userPasswordComponent}</div>
 
 
                 <label className="form-label" htmlFor="form3Example4">Password2</label>
-                <br />
                 <div className={`form-control-me ${checkBothPassword && password1.userPassword !== password2.userPassword ? "invalid-input" : ""}`}>{password2.userPasswordComponent}</div>
                 {/* <div className="password-error">password didnt match</div> */}
                 <div className="error-text">{checkBothPassword && password1.userPassword !== password2.userPassword ? "Enter same password " : ""}</div>

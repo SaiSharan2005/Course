@@ -1,11 +1,8 @@
 import { Result } from "express-validator";
-import { Courses } from "../models/courseModel";
+import { Courses } from "../../models/old/courseModel";
 import { Response, Request } from "express";
 
 type TError= null|Error|{message:string};
-
-
-
 
 export const getCourseById = async (req:Request,res:Response):Promise<void> =>{
     let courseId:number = req.body.courseId;

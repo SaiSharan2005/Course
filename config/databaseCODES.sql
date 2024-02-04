@@ -8,7 +8,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 flush privileges;
 
 CREATE TABLE users (
-    userId INT PRIMARY KEY AUTO_INCREMENT,
+    userId UUID PRIMARY KEY DEFAULT UUIDV4,
     username VARCHAR(50) UNIQUE NOT NULL,
     passwordHash VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL
@@ -79,6 +79,12 @@ CREATE TABLE comments(
     userId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE,
     FOREIGN KEY (subTopicId) REFERENCES subTopics(subTopicId) ON DELETE CASCADE
+);
+
+CREATE TABLE tests(
+    testId INT PRIMARY KEY AUTO_INCREMENT,
+    courseId INT NOT NULL,
+    FOREIGN KEY (courseId) REFERENCES courses(courseId) ON DELETE CASCADE
 );
 
 -- Insert data into users table

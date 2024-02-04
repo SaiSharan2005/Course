@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Profile, { IProfile } from '../models/userProfileSchema';
+import Profile, { IProfile } from '../../models/old/userProfileSchema';
 
 const addProfile = async (req: Request, res: Response): Promise<void> => {
   try {

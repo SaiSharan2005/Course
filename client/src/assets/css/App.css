@@ -12,7 +12,8 @@
 /* About us */
 
 .main-content {
-    height: 90vh;
+    /* height: 90vh; */
+    padding-top: 9vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,14 +27,20 @@
     font-weight: 700;
     color: #E4F1FF;
   }
-  
+.main-words {
+  width: 40vw;
+  height: auto;
+}
   .main-paragraph p {
     margin: 2vh 4vw;
-    font-size: 20px;
+    font-size: 1em;
     color: #E4F1FF;
   
   }
   
+.main-img{
+  width:60vw;
+}
   
 .points ul {
     height: 50vh;
@@ -48,3 +55,17 @@
   }
   
   
+  @media screen and (max-width: 870px) {
+    body {
+      background-color: lightgreen;
+    }
+    .main-content{
+      flex-direction: column-reverse;
+    }
+    .our-mission{
+      flex-direction:column ;
+    }
+    .main-words{
+      width: 90vw;
+    }
+  }

@@ -24,14 +24,13 @@ export default function AboutUSPage(props: IAboutUSPageProps) {
                 <div className="main-img">
                     <img src={programmingBoy} alt="" style={{ width: "60vw" }} />
                 </div>
-
             </div>
+
             <div className="our-mission main-content">
-                <div className="image-mission">
+                <div className="image-mission ">
                     <img src={Mission} style={{ width: "40vw" }} />
                 </div>
-                <div className="text">
-
+                <div className="text main-words">
                     <div className="main-heading">
                         <p>Our Mission!</p>
                     </div>
@@ -44,8 +43,8 @@ export default function AboutUSPage(props: IAboutUSPageProps) {
                 </div>
             </div>
 
-            <div className="our-mission main-content">
-                <div className="text">
+            <div className="our-vission main-content">
+                <div className="text main-words">
 
                     <div className="main-heading">
                         <p>Our Vision!</p>
@@ -54,13 +53,14 @@ export default function AboutUSPage(props: IAboutUSPageProps) {
                         <p> Our vision is to create a world where everyone has access to quality education in programming. We believe
                             that education is the key to unlocking human potential and creating a better future for all. By providing
                             educational videos that are accessible and engaging, we hope to inspire a love of learning in people of all
-                            ages and backgrounds.</p>
+                            ages and backgrounds.
+                            </p>
                     </div>
                 </div>
                 <div className="image-mission">
                     <img src={vission} style={{ width: "40vw" }} />
                 </div>
-            </div>
+            </div> 
 
             <div className="what-we-offer">
                 <div className="main-heading">

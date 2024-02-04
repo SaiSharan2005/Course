@@ -88,7 +88,7 @@
 }
 
 .description{
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 200;
     color: #E4F1FF;
     margin: 4px;
@@ -111,10 +111,20 @@
 }
 
 .topic button{
+    padding: 2px 4px;
     background-color: white;
     border-radius: 2px;
 
 }
+
+@media screen and (max-width: 1200px) {
+.topic{
+    flex-direction: column-reverse;
+}
+.topic-img{
+    width: 70vw;
+}
+  }
 
 
 
@@ -148,15 +158,17 @@
     padding: 4px 10px;
     margin: 0px;
     text-align: start;
+    font-size: medium;
 
 }
 
 .subTopicName{
     max-width: 79%;
     margin: 0px;
-    font-size: 1.0em;
+    font-size: 0.8em;
 }
 .subTopicDate{
+    font-size: 0.8em;
     margin: 0px;
 }
 

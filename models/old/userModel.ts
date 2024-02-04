@@ -1,5 +1,5 @@
 import { Result } from "express-validator";
-import sql from "../config/mysql";
+import sql from "../../config/mysql";
 import { OkPacket } from "mysql";
 import { promises } from "dns";
 

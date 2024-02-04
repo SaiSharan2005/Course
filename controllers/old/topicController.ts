@@ -1,4 +1,4 @@
-import { Courses } from "../models/courseModel";
+import { Courses } from "../../models/old/courseModel";
 import { Response, Request } from "express";
 
 type TError= null|Error|{message:string};

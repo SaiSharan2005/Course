@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { SideBar } from '../components/SideBar';
 import { InputItem } from '../utils/TutorialFormater';
 import { UserContext } from 'src/context/userContext';
-
+import { CheckEnroll } from 'src/utils/CheckEnrollOrNot';
 interface ICoursePageProps { }
 
 interface ICourses {
@@ -37,11 +37,12 @@ const CoursePage: React.FC<ICoursePageProps> = () => {
     const [course, setCourse] = useState<ICourses>();
     const [topics, setTopics] = useState<InputItem[]>([]);
     const [courseIdn, setCourseId] = useState<number>(Number(courseIdNumber));
-    const [enrollCourses,setEnrollCourses] = useState<[]>();
+    const [enrollStatus,setEnrollStatus] = useState<boolean>();
     const styles = {
         tutorialBar: {
             width: "90vw",
             marginLeft: "5vw",
+            marginBottom: "5vh"
         }
     }
     
@@ -80,23 +81,23 @@ const CoursePage: React.FC<ICoursePageProps> = () => {
             });
             setTopics(await responseAllTutorial.json());
             console.log(topics);
-            const enrollOrNot= await fetch("http://localhost:3001/api/ ")
+            const enroll = await CheckEnroll(1,27);
+            setEnrollStatus(enroll)
+            
         };
 
         fetchData();
     }, [courseIdNumber]);
-
-
     return (
         <div>
-            {courseIdn}
             <div className="topic">
                 <div className=" flex-column Course-child">
                     <p className="head">{course?.courseName}</p>
                     <p className="description">{course?.description}</p>
                     <p className="createdDateTime">Course Created on {course?.createdDateTime ? format(course.createdDateTime, 'MMMM dd, yyyy') : ''}</p>
                     <p className="createdBy">Course Created By{course?.username}</p>
-                    <button onClick={enrollHandler}>Enroll</button>
+                    {!enrollStatus?<button onClick={enrollHandler}>Enroll</button>:<></>}
+                    
                 </div>
                 <div>
                     <img
